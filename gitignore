@@ -86,4 +86,4 @@ dmypy.json
 /.idea/modules.xml
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/EstimatingImageQuality.iml
-/Google-API-key/api-key.json
+api-key.json
