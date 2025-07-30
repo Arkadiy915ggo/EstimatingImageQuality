@@ -1,14 +1,14 @@
 import cv2
+import numpy as np
 
 def estimate(img):
     gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    laplacian = cv2.Laplacian(gray_image, cv2.CV_64F)
-    data = f"{laplacian.var():.4f}"
+    contrast = np.std(gray_image)
+    data = f"{contrast:.4f}"
 
     # print(data)
 
     return data
-
 
 # raw_image = cv2.imread(str(""))
 # estimate(raw_image)

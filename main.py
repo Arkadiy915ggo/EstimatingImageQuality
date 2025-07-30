@@ -21,8 +21,8 @@ def run_estimate_modules(image):
 
         if hasattr(module, 'estimate'):
             result = module.estimate(image)
-
-            results[module_name] = result
+            short_name = '_'.join(module_name.split('_')[2:])
+            results[short_name] = result
 
     return results
 

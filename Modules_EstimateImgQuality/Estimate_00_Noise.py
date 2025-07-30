@@ -9,6 +9,9 @@ def estimate(img):
     noise = normalized_gray_image - blur
     data = f"{np.std(noise):.4f}"
 
+    # print(data)
+
     return data
 
-
+# raw_image = cv2.imread(str(""))
+# estimate(raw_image)
