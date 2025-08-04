@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 # common variables. path to the folder should be moved to separate module with the input date
-folder = Path("F:/photo/Exorts/forStock/") #
+folder = Path("") #F:/photo/Exorts/forStock/
 completed_data = {}
 authorisation_data = authorisation_to_google_sheets()
 
@@ -23,6 +23,7 @@ def run_estimate_modules(image):
             result = module.estimate(image)
             short_name = '_'.join(module_name.split('_')[2:])
             results[short_name] = result
+            # print(results)
 
     return results
 
@@ -32,6 +33,6 @@ for file in folder.iterdir():
     if file.suffix.lower() in [".jpg", ".jpeg"]:
         raw_image = cv2.imread(str(file))
         estimated_data = run_estimate_modules(raw_image)
-        file_data = {"Name": file.name}
+        file_data = {"Name": [str(file.name), 0]}
         completed_data = file_data|estimated_data
         add_data_to_google_sheets(completed_data, authorisation_data)
